@@ -9,7 +9,7 @@ class Client(Cmd):
     客户端
     """
     prompt = ''
-    intro = '[Welcome] 简易聊天室客户端(Cli版)\n' + '[Welcome] 作者: NUAA 161520311 黄文麒\n' + '[Welcome] 输入help来获取帮助\n'
+    intro = '[Welcome] 简易聊天室客户端(Cli版)\n' + '[Welcome] 输入help来获取帮助\n'
 
     def __init__(self):
         """
