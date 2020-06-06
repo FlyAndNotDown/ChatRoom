@@ -1,6 +1,6 @@
 <div align="center">
     <h1>ChatRoom CLI</h1>
-    <h6>一个 Python 实现的纯命令行聊天室</h6>
+    <h6>一个 Python Socket 实现的纯命令行聊天室</h6>
 </div>
 
 # 预览
