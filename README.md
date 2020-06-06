@@ -1,8 +1,6 @@
-<div>
-    <center>
-        <h1>ChatRoom CLI</h1>
-        <h6>一个 Python 实现的纯命令行聊天室</h6>
-    </center>
+<div align="center">
+    <h1>ChatRoom CLI</h1>
+    <h6>一个 Python 实现的纯命令行聊天室</h6>
 </div>
 
 # 预览
@@ -57,5 +55,7 @@ send ${message}
 
 如果我的项目帮上了你的一点小忙，请点一个小星星或者请我喝一杯咖啡，谢谢 😉
 
-<img alt="AliPay" src="./doc/AliPay.jpg" width="40%"/>
-<img alt="WeChat" src="./doc/WeChat.png" width="40%"/>
+<div>
+    <img alt="AliPay" src="./doc/AliPay.jpg" width="30%"/>
+    <img alt="WeChat" src="./doc/WeChat.png" width="30%"/>
+</div>
