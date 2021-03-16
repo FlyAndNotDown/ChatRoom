@@ -50,12 +50,3 @@ send ${message}
 ```
 
 可以发送消息 `${message}` 给聊天室登录的所有用户
-
-# 作者的话
-
-如果我的项目帮上了你的一点小忙，请点一个小星星或者请我喝一杯咖啡，谢谢 😉
-
-<div>
-    <img alt="AliPay" src="./doc/AliPay.jpg" width="30%"/>
-    <img alt="WeChat" src="./doc/WeChat.png" width="30%"/>
-</div>
