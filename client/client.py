@@ -19,12 +19,13 @@ class Client(Cmd):
         self.__socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.__id = None
         self.__nickname = None
+        self.__isLogin = False
 
     def __receive_message_thread(self):
         """
         接受消息线程
         """
-        while True:
+        while self.__isLogin:
             # noinspection PyBroadException
             try:
                 buffer = self.__socket.recv(1024).decode()
@@ -71,6 +72,7 @@ class Client(Cmd):
             if obj['id']:
                 self.__nickname = nickname
                 self.__id = obj['id']
+                self.__isLogin = True
                 print('[Client] 成功登录到聊天室')
 
                 # 开启子线程用于接受数据
@@ -91,9 +93,21 @@ class Client(Cmd):
         # 显示自己发送的消息
         print('[' + str(self.__nickname) + '(' + str(self.__id) + ')' + ']', message)
         # 开启子线程用于发送数据
-        thread = threading.Thread(target=self.__send_message_thread, args=(message, ))
+        thread = threading.Thread(target=self.__send_message_thread, args=(message,))
         thread.setDaemon(True)
         thread.start()
+
+    def do_logout(self, args=None):
+        """
+        登出
+        :param args: 参数
+        """
+        self.__socket.send(json.dumps({
+            'type': 'logout',
+            'sender_id': self.__id
+        }).encode())
+        self.__isLogin = False
+        return True
 
     def do_help(self, arg):
         """
@@ -104,9 +118,12 @@ class Client(Cmd):
         if command == '':
             print('[Help] login nickname - 登录到聊天室，nickname是你选择的昵称')
             print('[Help] send message - 发送消息，message是你输入的消息')
+            print('[Help] logout - 退出聊天室')
         elif command == 'login':
             print('[Help] login nickname - 登录到聊天室，nickname是你选择的昵称')
         elif command == 'send':
             print('[Help] send message - 发送消息，message是你输入的消息')
+        elif command == 'logout':
+            print('[Help] logout - 退出聊天室')
         else:
             print('[Help] 没有查询到你想要了解的指令')
